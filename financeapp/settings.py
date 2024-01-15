@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSFR_TRUSTED_ORIGINS = ["https://financialfellow-07bb736e7cc6.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://financialfellow-07bb736e7cc6.herokuapp.com"]
 
 CORS_ORIGIN_WHITELIST = ["https://financialfellow-07bb736e7cc6.herokuapp.com"]
 # Application definition
