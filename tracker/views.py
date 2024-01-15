@@ -55,7 +55,7 @@ def budget_visualization(request):
     print(chart_data)
     # Pass the chart data to the template
     return render(request, 'budget_visualization.html', {'chart_data' : chart_data})
-@csrf_exempt
+
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
