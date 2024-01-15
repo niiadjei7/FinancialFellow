@@ -65,8 +65,8 @@ def login_view(request):
             print('success')
             #next_url = request.GET.get('next', '/profile/')
             return render(request, 'profile.html')    
-        else:
-            form = AuthenticationForm()
+    else:
+        form = AuthenticationForm()
 
     return render(request, 'registration/login.html', {'form': form})
 
