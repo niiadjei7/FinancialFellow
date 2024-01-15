@@ -63,8 +63,8 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             print('success')
-            next_url = request.GET.get('next', '/tracker/profile/')
-            return redirect(next_url)    
+            #next_url = request.GET.get('next', '/profile/')
+            return render(request, 'profile.html')    
         else:
             form = AuthenticationForm()
 
@@ -73,7 +73,7 @@ def login_view(request):
 def log_out(request):
     if request.method == 'POST':    
         logout(request)
-        return redirect('/tracker/')
+        return redirect('/')
     else:
         # If the view receives a GET request, you can handle it as needed
         return render(request, 'tracker/logout.html')  # Replace 'home' with the name of your home or login view

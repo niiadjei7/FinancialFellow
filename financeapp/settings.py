@@ -129,8 +129,8 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-LOGIN_REDIRECT_URL = '/tracker/profile/'
-LOGOUT_REDIRECT_URL = '/tracker/'
+LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = ''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
