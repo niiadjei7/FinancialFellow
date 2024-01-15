@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .models import Budget, Expense, Bill, ExpenseLimit, ExpenseType, LoggedExpense, MonthlySummary
 from .forms import BudgetForm, ExpenseForm, BillForm, ExpenseLimitForm, LoggedExpenseForm
-import json
+from django.views.decorators.csrf import csrf_exempt
 from django.db.models.functions import TruncMonth
 from django.utils import timezone
 from datetime import timedelta
@@ -55,7 +55,7 @@ def budget_visualization(request):
     print(chart_data)
     # Pass the chart data to the template
     return render(request, 'budget_visualization.html', {'chart_data' : chart_data})
-
+@csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
