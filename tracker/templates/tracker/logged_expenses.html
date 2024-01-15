@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <ul>
+        <h2>This month's spending</h2>
+        <h6>Click <a href="{% url 'set_expense_limit' %}">here:</a>  to set/change a monthly limit. Current Limit: ${{limit.limit}}</h6>
+        <br>
+        {% for log in logs %}
+            <li>
+                <p>{{ log.name }} - ${{ log.amount }} - {{log.date}} - {{log.expense_type}}</p>
+                <a href="{% url 'edit_log' log.id %}">Edit</a> - 
+                <a href="{% url 'delete_log' log.id %}">Delete</a><br>
+
+
+            </li>
+        {% endfor %}
+        <br>
+        <p>You've spent ${{ total|floatformat:2 }} so far. You have ${{ remainder|floatformat:2 }} left</p>
+        <br>
+        <br>
+        <a href="{% url 'budget_visualization' %}">View Chart</a><br>
+        <a href="{% url 'monthly_report' %}">Compare trend to past months</a>
+    </ul>
+    
+    <a href="{% url 'new_log' %}">Log expense</a><br>
+
+{% endblock %}
+
+<

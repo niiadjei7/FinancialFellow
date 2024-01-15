@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        <h2>Set Expense Limit</h2>
+        <form method="post" action="{% url 'set_expense_limit' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </ul>
+{% endblock %}

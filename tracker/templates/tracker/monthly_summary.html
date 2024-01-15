@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{%block content%}
+    <ul>
+        <h2>Monthly Summary</h2>
+
+        <form method="get" action="{% url 'monthly_summary' %}">
+            <label for="month">Select Month(MM):</label>
+            <input type="number" name="month" id="month" min="1" max="12" placeholder="Enter month">
+
+            <label for="year">Select Year(YYYY):</label>
+            <input type="number" name="year" id="year" min="2022" max="2030" placeholder="Enter year">
+            
+
+            <button type="submit">Submit</button>
+        </form>
+        {% if no_history_available %}
+            <h4>No history available</h4>  
+        {% elif not_future %}
+            <h3>{{month}} {{year}} Monthly Summary</h3><br>
+            <h4>Bills</h4>
+            <ul>
+                {% for bill in bills %}
+                    <li>{{bill.name}} - ${{bill.amount}}</li>
+                {% endfor %}
+                <strong>Total Bills : ${{bill_total}}</strong>
+            </ul>
+            <h4>Expenses</h4>
+            <ul>
+                {% for log in logs %}
+                    <li>{{log.name}} - ${{log.amount}} - {{log.date}}</li>
+                {% endfor %}
+                <strong>Total Expenses: ${{logs_total}}</strong>
+            </ul>
+
+            <h5>Your total for this month: ${{total}}</h5>     
+        {% else%}
+            <h4>No history available</h4>
+        {% endif %}
+    </ul>
+{%endblock%}

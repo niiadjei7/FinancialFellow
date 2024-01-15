@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <ul>
+        <h2>Manage Bills</h2>
+        <p>Add bills to set up reminders</p>
+        {% for bill in bills %}
+            <li>
+                    {%if bill.due_day > 3%}
+                        <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}th</p>
+                    {%elif bill.due_day == 3 %}
+                        <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}rd</p>
+                    {%elif bill.due_day == 2 %}
+                        <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}nd</p>
+                    {%elif bill.due_day == 1 %}
+                        <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}st</p>
+                    {% endif %}<br>
+                <a href="{% url 'delete_bill' bill.id %}">Delete</a>
+                - <a href="{% url 'edit_bill' bill.id %}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_bill' %}">Add a new bill</a><br>
+{% endblock %}
+
+
+
+

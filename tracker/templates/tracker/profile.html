@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        <h2>Hello, {{ user.username|title }}!</h2>
+        
+        {% if closest_bill %}
+            <p><strong>Reminder: </strong></p>
+            <p>You have a bill due {{ reminder_month }}, {{ reminder_day }}</p>
+            <p>{{bill.name}} - ${{ closest_bill.amount }}</p>
+        {% endif %}
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </ul>
+{% endblock %}

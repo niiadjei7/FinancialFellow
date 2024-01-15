@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{%block content%}
+    <h1>Add Bill</h1>
+    <form method="post" action="{% url 'add_bill' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'bill_list' %}">Cancel</a>
+    </form>
+{% endblock %}
+
+

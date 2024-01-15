@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        <h2>Log Expense</h2>
+        <form method="post" action="{% url 'new_log' %}">
+            {% csrf_token %}
+            {{ form.as_p }}<p>MM/DD/YYYY</p>
+            <button type="submit">Submit</button>
+            <a href="{% url 'logged_expenses' %}">Cancel</a>
+        </form>
+    </ul>
+{% endblock %}

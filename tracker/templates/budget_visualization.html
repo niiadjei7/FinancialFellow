@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<ul>
+  <h1>Expense Charts</h1>
+
+  <div id="pie-chart"></div>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script type="module">
+    var chartData = {{ chart_data|safe|default:"{}" }};
+    
+
+    // Load script.js with the chartData
+    const script = document.createElement('script');
+    script.src = "{% static 'script.js' %}";
+    script.onload = function () {
+      console.log(chartData)
+      // Execute any initialization code from script.js, if needed
+      initChart(chartData);
+    };
+    document.head.appendChild(script);
+  </script>
+  <a href="{% url 'logged_expenses' %}">Go back</a>
+</ul>
+{% endblock %}
