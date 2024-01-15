@@ -44,8 +44,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -123,6 +123,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = [
     BASE_DIR / "budget_visualization" / "public",
+    BASE_DIR / "tracker" / "static",
 ]
 
 STATIC_URL = 'static/'
