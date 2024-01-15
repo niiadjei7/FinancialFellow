@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'financeapp.urls'
 
+CSFR_TRUSTED_ORIGINS = ["https://financialfellow-07bb736e7cc6.herokuapp.com"]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
