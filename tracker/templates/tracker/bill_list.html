@@ -15,11 +15,13 @@
                         <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}nd</p>
                     {%elif bill.due_day == 1 %}
                         <p>{{ bill.name }} - ${{ bill.amount }} - {{bill.due_day}}st</p>
-                    {% endif %}<br>
+                    {% endif %}
                 <a href="{% url 'delete_bill' bill.id %}">Delete</a>
-                - <a href="{% url 'edit_bill' bill.id %}">Edit</a>
+                - <a href="{% url 'edit_bill' bill.id %}">Edit</a><br>
             </li>
         {% endfor %}
+
+        <h6>Total: {{total}}</h6>
     </ul>
     <a href="{% url 'add_bill' %}">Add a new bill</a><br>
 {% endblock %}
