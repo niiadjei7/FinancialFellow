@@ -211,7 +211,7 @@ def bill_list(request):
     bills = Bill.objects.filter(user=request.user).exclude(user=None)
     total = 0
     for bill in bills:
-        total += round(bill.amount,2)
+        total += float(round(bill.amount,2))
     return render(request, 'tracker/bill_list.html', {'bills': bills, 'total': total})
 
 @login_required
