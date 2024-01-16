@@ -13,7 +13,6 @@ from django.db.models.functions import TruncMonth
 from django.utils import timezone
 from datetime import timedelta
 import calendar
-import datetime
 
 def spending_chart(request):
 
