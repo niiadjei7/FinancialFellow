@@ -1,6 +1,6 @@
 function initChart(chartData) {
-  const width = 800;
-  const height = 800;
+  const width = 400;
+  const height = 400;
 
   const svg = d3.select('#pie-chart')
       .append('svg')
@@ -8,6 +8,7 @@ function initChart(chartData) {
       .attr('height', height)
       .append('g')
       .attr('transform', `translate(${width / 2},${height / 2})`);
+
 
   const pie = d3.pie();
   const arc = d3.arc().innerRadius(0).outerRadius(Math.min(width, height) / 2);
