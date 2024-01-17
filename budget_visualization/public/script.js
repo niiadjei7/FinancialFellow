@@ -36,6 +36,6 @@ function initChart(chartData) {
       .attr('transform', d => `translate(${arc.centroid(d)})`) // Position at the centroid
       .attr('text-anchor', 'middle')
       .attr('dy', '0.35em') // Offset for better positioning
-      .style('font-size', '20px')
+      .style('font-size', '15px')
       .style('fill', 'white'); // Adjust styling as needed
 }
