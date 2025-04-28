@@ -1,0 +1,12 @@
+<h1>Budgets</h1>
+<ul>
+    {% for budget in budgets %}
+        <li>
+            <a href="{% url 'expenses' budget.id %}">{{ budget.name }}</a>
+            - ${{ budget.amount }}
+            - <a href="{% url 'delete_budget' budget.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_budget' %}">Add Budget</a><br>
+<a href="{% url 'profile' %}">Back to home</a>

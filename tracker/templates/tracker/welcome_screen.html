@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome!</h2>
+    <p>Log in or create an account to get started.</p>
+    <p>
+        <a href="{% url 'login' %}">Log in</a> |
+        <a href="{% url 'register' %}">Create an account</a>
+    </p>
+{% endblock %}

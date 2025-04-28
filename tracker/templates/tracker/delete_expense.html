@@ -1,0 +1,8 @@
+
+<h1>Delete Expense</h1>
+<p>Are you sure you want to delete "{{ expense.name }}"?</p>
+<form method="post" action="{% url 'delete_expense' budget.id expense.id %}">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+<a href="{% url 'expenses' budget.id %}">Cancel</a>
